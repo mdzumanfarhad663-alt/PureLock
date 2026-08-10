@@ -103,7 +103,7 @@ jobs:
       - name: Prepare APK release asset
         id: prepare_asset
         run: |
-          REPO_NAME=$(echo "${{ github.repository }}" | awk -F '/' '{print $2}' | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9._-]//-/g')
+          REPO_NAME=$(echo "${{ github.repository }}" | awk -F '/' '{print $2}' | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9._-]/-/g')
           RUN_NUM="${{ github.run_number }}"
           TEMP_DIR=$(mktemp -d)
           ASSET_NAME="${REPO_NAME}-debug-build-${RUN_NUM}.apk"
